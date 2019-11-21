@@ -6,9 +6,9 @@ import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    margin: theme.spacing(10, 50),
+    marginTop: theme.spacing(10),
     width: 600,
-
+    
   },
   container: {
     display: 'flex',
@@ -30,19 +30,23 @@ export default function BasicTextFields() {
   const classes = useStyles();
 
   return (
-    <Paper className={classes.root} boxShadow={3} bgcolor="background.paper">
-      <form className={classes.container} noValidate autoComplete="off">
-        <div>
-          <TextField id="standard-basic" className={classes.textField} label="Nomor Surat" margin="normal" />
-          <TextField id="standard-basic" className={classes.textField} label="Alamat Penerima" margin="normal" />
-          <TextField id="standard-basic" className={classes.textField} label="Tanggal" margin="normal" />
-          <TextField id="standard-basic" className={classes.textField} label="Perihal" margin="normal" />
-          <Button variant="contained" color="primary" className={classes.button}>
-            Submit
-          </Button>
-        </div>
-      </form>
-    </Paper>
+    
+    <center>
+      <Paper className={classes.root} bgcolor="background.paper">
+        <form className={classes.container} noValidate autoComplete="off">
+          <div>
+            <TextField id="standard-basic" className={classes.textField} label="Nomor Surat" margin="normal" />
+            <TextField id="standard-basic" className={classes.textField} label="Alamat Penerima" margin="normal" />
+            <TextField id="standard-basic" className={classes.textField} label="Tanggal" margin="normal" />
+            <TextField id="standard-basic" className={classes.textField} label="Perihal" margin="normal" />
+            <Button variant="contained" color="primary" className={classes.button}>
+              Submit
+            </Button>
+          </div>
+        </form>
+      </Paper>
+    </center>
+   
 
 
   );
