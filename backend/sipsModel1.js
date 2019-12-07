@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let inbox = new Schema({
-  number: {
+  nomor_surat: {
     type: Number
   },
   alamat_penerima: {

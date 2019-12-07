@@ -6,11 +6,11 @@ const mongoose = require('mongoose')
 const PORT = 5000
 const sipsRouters = express.Router()
 
-let Sips = require('./SipsDBModel')
+let Sips1 = require('./SipsModel1')
 
 app.use(cors())
 app.use(bodyParser.json())
-app.use('/'. Routers)
+app.use('./Routers')
 
 mongoose.connect('mongodb://127.0.0.1:27017/sips1tables', { useNewUrlParser: true })
 const connection = mongoose.connection
@@ -35,7 +35,7 @@ sipsRouters.route('/').post(function(req, res){
 })
 
 sipsRouters.route('/list').get(function(req, res) {
-  Sips.find(function(err, mails) {
+  Sips1.find(function(err, mails) {
     if (err) {
       console.log(err)
     } else (
@@ -45,7 +45,7 @@ sipsRouters.route('/list').get(function(req, res) {
 })
 
 sipsRouters.route('/edit/:id').get((req, res) => {
-  Sips.findById(req.params.id)
+  Sips1.findById(req.params.id)
   .then(() => {
     res.status(200).json(todo);
   })
@@ -55,7 +55,7 @@ sipsRouters.route('/edit/:id').get((req, res) => {
 })
 
 sipsRouters.route('/delete/:id').post((req, res) => {
-  Sips.findByIdAndDelete(req.body._id)
+  Sips1.findByIdAndDelete(req.body._id)
   .then(() => {
     res.status(200).json('Mail deleted')
   })
@@ -72,7 +72,7 @@ sipsRouters.route('/update/:id').post(function(req, res) {
     perihal
   } = req.body;
 
-  Sips.updateOne({ 'nomor_surat': number } , {$set: {alamat_penerima, tanggal, perihal}})
+  Sips1.updateOne({ 'nomor_surat': number } , {$set: {alamat_penerima, tanggal, perihal}})
     .then(todo => {
       res.status(200).json({'mail': 'mail edit successfully'})
     })
@@ -83,7 +83,7 @@ sipsRouters.route('/update/:id').post(function(req, res) {
 
   // get last index
   sipsRouters.route('/getLast').get(function(req, res) {
-    Sips.find(function(err, mails) {
+    Sips1.find(function(err, mails) {
       if (err) {
         console.log(err)
       } else {
